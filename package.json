@@ -1,0 +1,19 @@
+{
+  "name": "todolist-db",
+  "version": "1.0.0",
+  "description": "example code for kelas.com studen",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo",
+    "list"
+  ],
+  "author": "Andika E. Wiyatno",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.6.1"
+  }
+}
