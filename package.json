@@ -14,6 +14,7 @@
   "author": "Andika E. Wiyatno",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "mysql2": "^3.6.1"
   }
 }
