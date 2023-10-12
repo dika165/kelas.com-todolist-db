@@ -13,13 +13,18 @@
 */
 
 import * as userService from './services/user.js';
+import express from 'express';
 
-await userService.getUser();
+const host = "localhost";
+const port = 8090;
 
-await userService.createUser("ahmad", "ahmad@gmail.com", "pass1234");
+const app = express();
+app.use(express.json());
+app.get("/users", userService.getUser);
+app.post("/users", userService.createUser);
+app.put("/users/:id",userService.updateUser);
+app.delete("/users/:id", userService.deleteUser);
 
-await userService.updateUser(3, "Ulfah", "ulfa@gmail.com");
-
-await userService.deleteUser(1);
-
-await userService.getUser();
+app.listen(port,host, ()=> {
+    console.log(`Server berjalan di http://${host}:${port}`);
+})
