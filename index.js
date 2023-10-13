@@ -10,6 +10,8 @@
     2. buat process CRUD untuk table tersebut
     3. Pada function create task setelah berhasil menambahkan tampilkan data yang ditambahkan
     4. pada function update setelah berhasil memperbarui data tampilkan data yang di perbarui
+
+    5. Tambahkan authorization disetiap endpoint task
 */
 
 import * as userService from './services/user.js';
@@ -20,10 +22,11 @@ const port = 8090;
 
 const app = express();
 app.use(express.json());
-app.get("/users", userService.getUser);
+app.get("/users",userService.validateToken, userService.getUser);
 app.post("/users", userService.createUser);
 app.put("/users/:id",userService.updateUser);
 app.delete("/users/:id", userService.deleteUser);
+app.post("/login", userService.login);
 
 app.listen(port,host, ()=> {
     console.log(`Server berjalan di http://${host}:${port}`);
